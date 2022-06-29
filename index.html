@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="web/style.css">
+		<link rel="stylesheet" href="web/frame.css">
+		<script src="web/vue3.js"></script>
+		<title>Ultimate Temp</title>
+	</head>
+
+	<body>
+		<div id="app">
+			<div id="head">{{title}}</div>
+			<div id="view">
+				<!-- 响应式布局，温度范围和温度模板 -->
+				<div id="range-and-temp">
+					<!-- temp range -->
+					<div id="temp-option" class="option">
+						<div class="title">温度范围</div>
+						<div class="note">
+							<p class="note-para">设定每一个温度随机值的范围</p>
+							<p class="note-para">每一个温度互不影响</p>
+						</div>
+						<p class="text">从</p>
+						<input type="text" v-model="tempfrom" class="input">
+						<p class="text">℃</p>
+						<p class="text">到</p>
+						<input type="text" v-model="tempto" class="input">
+						<p class="text">℃</p>
+					</div>
+					<!-- temp template -->
+					<div id="temp-temp" class="option">
+						<div class="title">温度组模板</div>
+						<div class="note">
+							<p class="note-para">指定模板，$ 表示一个温度</p>
+							<p class="note-para">t 表示制表符，n表示换行符</p>
+							<p class="note-para">一个模板就是一个温度组</p>
+							<p class="note-para">该组可重复批量生成</p>
+						</div>
+						<input type="text" v-model="temptemp" class="input big-input">
+					</div>
+					<!-- template gen times -->
+					<div id="temp-temp" class="option">
+						<div class="title">模板生成次数</div>
+						<div class="note">
+							<p class="note-para">指定一个模板将被如何重复生成</p>
+							<p class="note-para">用于批量大规模填写温度表</p>
+							<p class="note-para">t 表示制表符，n表示换行符</p>
+						</div>
+						<p>
+							水平方向
+							<input type="text" v-model="tempHcount" class="input small-input">
+							次，用
+							<input type="text" v-model="tempHsplit" class="input small-input">
+							分隔
+						</p>
+						<p>
+							垂直方向
+							<input type="text" v-model="tempVcount" class="input small-input">
+							次，用
+							<input type="text" v-model="tempVsplit" class="input small-input">
+							分隔
+						</p>
+					</div>
+					<!-- feature string -->
+					<div id="feature-area" class="option">
+						<div class="title">特征代码</div>
+						<div class="note">
+							<p class="note-para">用于唯一描述当前页面设置参数的字符</p>
+							<p class="note-para">可以复制此字符来分享给别人</p>
+							<p class="note-para">以此分享自己的配置</p>
+							<div>
+								<input type="text" v-model="featureStr" class="input big-big-input" ref="feat">
+							</div>
+							<div>
+								<button class="btn" @click="copyFeature">复制特征代码</button>
+								<button class="btn" @click="updateFromFeatureStr">应用特征代码</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- results -->
+				<div id="result-area" class="option">
+					<div class="title">最终结果</div>
+					<div id="result-grid">
+						<textarea id="result-text" v-model="finalRes" ref="textarea"></textarea>
+						<div id="result-button">
+							<button class="btn" @click="generateGroups">生成</button>
+							<button class="btn" @click="copy">{{copyBtn}}</button>
+							<!-- <button class="btn" @click="reset">重置</button> -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="web/main.js"></script>
+	</body>
+
+</html>

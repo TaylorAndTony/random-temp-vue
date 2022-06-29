@@ -1,0 +1,51 @@
+:root {
+	--c1: #fedadb;
+	--c2: #fb8d9d;
+	--c3: #ff74a5;
+	--c4: #fab751;
+}
+
+#head {
+	background-color: var(--c2);
+	font-weight: bold;
+	color: white;
+	margin-bottom: 30px;
+}
+
+.option {
+	/* border: 1px solid #aaa; */
+	margin-bottom: 20px;
+	padding-top: 10px;
+	padding-bottom: 20px;
+	background: #fff;
+	box-shadow: 5px 5px 9px var(--c1);
+}
+
+
+.title {
+	text-shadow: 1px 1px 1px var(--c2);
+	font-family: 'opposans', misans, 微软雅黑, Arial;
+}
+
+.btn {
+	background-color: var(--c2);
+	border: 0px;
+	border-radius: 20px;
+	height: 40px;
+	line-height: 40px;
+	padding: 5px;
+	color: white;
+	box-shadow: 4px 4px 7px var(--c2);
+	transition: all .1s;
+}
+
+.btn:hover{
+	box-shadow: 9px 9px 12px var(--c2);
+}
+.btn:active{
+	transform: scale(0.95);
+}
+
+button {
+	display: inline-block;
+}
