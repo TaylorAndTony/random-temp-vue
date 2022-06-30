@@ -1,5 +1,5 @@
 :root {
-	--c1: #fedadb;
+	--c1: #fee0e2;
 	--c2: #fb8d9d;
 	--c3: #ff74a5;
 	--c4: #fab751;
@@ -18,7 +18,16 @@
 	padding-top: 10px;
 	padding-bottom: 20px;
 	background: #fff;
-	box-shadow: 5px 5px 9px var(--c1);
+	box-shadow: 0 0 10px var(--c1),
+		10px 10px 15px var(--c1);
+	transition: .3s;
+}
+
+.option:hover {
+	box-shadow: 0 0 10px var(--c1),
+	0 0 20px var(--c1),
+	0 0 30px var(--c1),
+	0 0 40px var(--c1);
 }
 
 
